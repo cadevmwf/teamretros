@@ -1,0 +1,13 @@
+<div class="span6">
+  <h3><%= category.name %></h3>
+  <%= form_for @retro.notes.where(:category_id => category.id).build, :remote => true do |f| %>
+    <%= f.hidden_field :retro_id %>
+    <%= f.hidden_field :category_id %>
+    <%= f.text_field :description, :id => "#{category.name}_input", :class => 'span5' %>
+  <% end %>
+  <ul id="<%= dom_id category %>">
+  <% @retro.notes.where(:category_id => category.id).order("created_at DESC").each do |note| %>
+    <%= render 'notes/note', :note => note %>
+  <% end %>
+  </ul>
+</div>

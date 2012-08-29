@@ -1,0 +1,6 @@
+<li id="<%= dom_id note %>" class="span4">
+  <%= note.description %>
+  <span style="float: right">
+    <%= link_to "<i class='icon-trash'></i>".html_safe, note, :method => 'delete', :remote => true %>
+  </span>
+</li>

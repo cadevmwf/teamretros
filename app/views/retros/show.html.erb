@@ -1,0 +1,34 @@
+<h1><%= @retro.team.name %></h1>
+<h2>Sprint #<%= @retro.sprint %></h2>
+<h3><%= @retro.created_at.strftime("Week %U, %Y") %></h3>
+
+<div class="row">&nbsp;</div>
+
+<% Category.all.each_with_index do |category, i| %>
+  <% if i.even? %>
+    <div class="row">
+  <% end %>
+  <%= render 'quadrant', :category => category %>
+  <% if i.odd? %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
